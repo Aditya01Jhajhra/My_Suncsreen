@@ -78,7 +78,7 @@ def main():
                 hole=0.3,
                 color_discrete_sequence=px.colors.qualitative.Set2
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         with col2:
             st.subheader("Products by Brand")
@@ -89,7 +89,7 @@ def main():
                 color='count',
                 color_continuous_scale='Sunset'
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         st.subheader("Price Distribution")
         fig = px.histogram(
@@ -99,7 +99,7 @@ def main():
             color='category' if 'category' in data['products'] else None,
             title="Product Price Distribution"
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with tab2:
         col1, col2 = st.columns(2)
@@ -113,7 +113,7 @@ def main():
                 color='count',
                 color_continuous_scale='Viridis'
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         with col2:
             st.subheader("Income Bracket Distribution")
@@ -122,7 +122,7 @@ def main():
                 names='income_bracket',
                 hole=0.3
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         st.subheader("Monthly Skincare Spending by Tier")
         tier_map = {1: 'Tier 1', 2: 'Tier 2', 3: 'Tier 3', 4: 'Tier 4'}
@@ -135,7 +135,7 @@ def main():
             y='skincare_spending',
             title='Skincare Spending by City Tier'
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with tab3:
         col1, col2 = st.columns(2)
@@ -151,7 +151,7 @@ def main():
                 hover_name='brand',
                 title='Price vs Rating by Brand'
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         with col2:
             st.subheader("Brand Positioning Matrix")
@@ -163,7 +163,7 @@ def main():
                 hover_name='product_name',
                 title='Price vs Reviews'
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         st.dataframe(
             data['competitors'][['brand', 'product_name', 'spf', 'mrp', 'rating', 'positioning']],
@@ -189,7 +189,7 @@ def main():
             barmode='group',
             title="CPA & Conversion by Channel"
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         st.dataframe(
             data['channels'].rename(columns={'cpa_estimate': 'CPA Estimate (₹)', 'conversion_rate': 'Conversion Rate (%)'}),
